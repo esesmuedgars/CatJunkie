@@ -18,6 +18,9 @@
 		72B8477F22933DB50099C563 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477E22933DB50099C563 /* MainViewModel.swift */; };
 		72B84781229343AD0099C563 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B84780229343AD0099C563 /* RatingViewController.swift */; };
 		72B84783229343BD0099C563 /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B84782229343BD0099C563 /* RatingViewModel.swift */; };
+		72B8478622934C110099C563 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8478522934C110099C563 /* Endpoint.swift */; };
+		72B8478822934EA50099C563 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8478722934EA50099C563 /* APIService.swift */; };
+		72B8478A229356010099C563 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B84789229356010099C563 /* Cat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		72B8477E22933DB50099C563 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		72B84780229343AD0099C563 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		72B84782229343BD0099C563 /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
+		72B8478522934C110099C563 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		72B8478722934EA50099C563 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		72B84789229356010099C563 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 		725E898F2292FC6900362A16 /* CatJunkie-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				72B8478422934C040099C563 /* Transport */,
 				725E89902292FC6900362A16 /* AppDelegate.swift */,
 				72B8477A229338060099C563 /* MainFlowController.swift */,
 				72B8477E22933DB50099C563 /* MainViewModel.swift */,
@@ -109,6 +116,24 @@
 				725E89A72292FC6B00362A16 /* Info.plist */,
 			);
 			path = "CatJunkie-iOSTests";
+			sourceTree = "<group>";
+		};
+		72B8478422934C040099C563 /* Transport */ = {
+			isa = PBXGroup;
+			children = (
+				72B8478722934EA50099C563 /* APIService.swift */,
+				72B8478522934C110099C563 /* Endpoint.swift */,
+				72B8478D22935C760099C563 /* Models */,
+			);
+			path = Transport;
+			sourceTree = "<group>";
+		};
+		72B8478D22935C760099C563 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				72B84789229356010099C563 /* Cat.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,10 +239,13 @@
 			files = (
 				72B8477F22933DB50099C563 /* MainViewModel.swift in Sources */,
 				725E89932292FC6900362A16 /* MainViewController.swift in Sources */,
+				72B8478A229356010099C563 /* Cat.swift in Sources */,
+				72B8478622934C110099C563 /* Endpoint.swift in Sources */,
 				725E89912292FC6900362A16 /* AppDelegate.swift in Sources */,
 				72B84781229343AD0099C563 /* RatingViewController.swift in Sources */,
 				72B8477B229338060099C563 /* MainFlowController.swift in Sources */,
 				72B84783229343BD0099C563 /* RatingViewModel.swift in Sources */,
+				72B8478822934EA50099C563 /* APIService.swift in Sources */,
 				72B8477D22933BF20099C563 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
