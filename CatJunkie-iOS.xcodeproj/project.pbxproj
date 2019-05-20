@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		725E89912292FC6900362A16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89902292FC6900362A16 /* AppDelegate.swift */; };
-		725E89932292FC6900362A16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89922292FC6900362A16 /* ViewController.swift */; };
+		725E89932292FC6900362A16 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89922292FC6900362A16 /* MainViewController.swift */; };
 		725E89962292FC6900362A16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725E89942292FC6900362A16 /* Main.storyboard */; };
 		725E89982292FC6B00362A16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 725E89972292FC6B00362A16 /* Assets.xcassets */; };
 		725E899B2292FC6B00362A16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725E89992292FC6B00362A16 /* LaunchScreen.storyboard */; };
 		725E89A62292FC6B00362A16 /* CatJunkie_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89A52292FC6B00362A16 /* CatJunkie_iOSTests.swift */; };
+		72B8477B229338060099C563 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477A229338060099C563 /* MainFlowController.swift */; };
+		72B8477D22933BF20099C563 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477C22933BF20099C563 /* Extensions.swift */; };
+		72B8477F22933DB50099C563 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477E22933DB50099C563 /* MainViewModel.swift */; };
+		72B84781229343AD0099C563 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B84780229343AD0099C563 /* RatingViewController.swift */; };
+		72B84783229343BD0099C563 /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B84782229343BD0099C563 /* RatingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +33,7 @@
 /* Begin PBXFileReference section */
 		725E898D2292FC6900362A16 /* CatJunkie-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CatJunkie-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		725E89902292FC6900362A16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		725E89922292FC6900362A16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		725E89922292FC6900362A16 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		725E89952292FC6900362A16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		725E89972292FC6B00362A16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		725E899A2292FC6B00362A16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +41,11 @@
 		725E89A12292FC6B00362A16 /* CatJunkie-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CatJunkie-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		725E89A52292FC6B00362A16 /* CatJunkie_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatJunkie_iOSTests.swift; sourceTree = "<group>"; };
 		725E89A72292FC6B00362A16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72B8477A229338060099C563 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
+		72B8477C22933BF20099C563 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		72B8477E22933DB50099C563 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		72B84780229343AD0099C563 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		72B84782229343BD0099C563 /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +88,12 @@
 			isa = PBXGroup;
 			children = (
 				725E89902292FC6900362A16 /* AppDelegate.swift */,
-				725E89922292FC6900362A16 /* ViewController.swift */,
+				72B8477A229338060099C563 /* MainFlowController.swift */,
+				72B8477E22933DB50099C563 /* MainViewModel.swift */,
+				725E89922292FC6900362A16 /* MainViewController.swift */,
+				72B84782229343BD0099C563 /* RatingViewModel.swift */,
+				72B84780229343AD0099C563 /* RatingViewController.swift */,
+				72B8477C22933BF20099C563 /* Extensions.swift */,
 				725E89942292FC6900362A16 /* Main.storyboard */,
 				725E89972292FC6B00362A16 /* Assets.xcassets */,
 				725E89992292FC6B00362A16 /* LaunchScreen.storyboard */,
@@ -197,8 +212,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725E89932292FC6900362A16 /* ViewController.swift in Sources */,
+				72B8477F22933DB50099C563 /* MainViewModel.swift in Sources */,
+				725E89932292FC6900362A16 /* MainViewController.swift in Sources */,
 				725E89912292FC6900362A16 /* AppDelegate.swift in Sources */,
+				72B84781229343AD0099C563 /* RatingViewController.swift in Sources */,
+				72B8477B229338060099C563 /* MainFlowController.swift in Sources */,
+				72B84783229343BD0099C563 /* RatingViewModel.swift in Sources */,
+				72B8477D22933BF20099C563 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
