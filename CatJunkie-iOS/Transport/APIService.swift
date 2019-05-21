@@ -17,6 +17,7 @@ enum NetworkError: Error {
 
 protocol APIServiceProtocol {
     func fetchCatImages(completionHandler complete: @escaping (Result<Cats, NetworkError>) -> Void)
+    func fetchCatImageVotes(completionHandler complete: @escaping (Result<Votes, NetworkError>) -> Void)
     func voteForCatImage(withId id: String, voteType: Vote.`Type`, completionHandler complete: @escaping (Result<Void, NetworkError>) -> Void)
 }
 
@@ -59,6 +60,30 @@ final class APIService: APIServiceProtocol {
         }.resume()
     }
 
+    func fetchCatImageVotes(completionHandler complete: @escaping (Result<Votes, NetworkError>) -> Void) {
+        let parameters = [URLQueryItem(name: "sub_id", value: userId)]
+
+        var request = Endpoint.vote.request(with: parameters)
+        request.addValue(apiKey, forHTTPHeaderField: "x-api-key")
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
+                complete(.failure(.emptyDataOrError))
+                return
+            }
+
+            guard 200 ..< 300 ~= response.statusCode else {
+                complete(.failure(.unexpectedStatusCode(statusCode: response.statusCode)))
+                return
+            }
+
+            do {
+                complete(.success(try JSONDecoder().decode(Votes.self, from: data)))
+            } catch let error as NSError {
+                complete(.failure(.failedToSerializeObjectWith(errorDescription: error.debugDescription)))
+            }
+        }.resume()
+    }
 
     func voteForCatImage(withId id: String, voteType: Vote.`Type`, completionHandler complete: @escaping (Result<Void, NetworkError>) -> Void) {
         var request = Endpoint.vote.request()
