@@ -23,6 +23,12 @@ protocol APIServiceProtocol {
 
 final class APIService: APIServiceProtocol {
 
+    static var shared = APIService()
+
+    private init() {
+        assert(apiKey.count == 36, "Invalid API key")
+    }
+
     /// API key used to make authenticated requests.
     /// Can be passed as a header or a query parameter.
     ///
