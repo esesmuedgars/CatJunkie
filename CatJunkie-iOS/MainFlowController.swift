@@ -21,7 +21,8 @@ extension FlowController {
 }
 
 protocol FlowControllerDelegate: class {
-    func presentVotingViewController(catId: String)
+    func presentVotingViewController(cat: Cat)
+    func presentAlertForCastedVote(voteType: Vote.`Type`)
 }
 
 final class MainFlowController: FlowController, FlowControllerDelegate {
@@ -46,9 +47,10 @@ final class MainFlowController: FlowController, FlowControllerDelegate {
         }
     }
 
-    func presentVotingViewController(catId: String) {
+    func presentVotingViewController(cat: Cat) {
         let viewController = storyboard.instantiateViewController(VotingViewController.self)
-        viewController.viewModel = VotingViewModel(catId: catId)
+        viewController.viewModel = VotingViewModel(cat: cat)
+        viewController.flowDelegate = self
 
         if navigationController == nil {
             navigationController = UINavigationController(rootViewController: viewController)
@@ -56,5 +58,12 @@ final class MainFlowController: FlowController, FlowControllerDelegate {
         } else {
             navigationController.pushViewController(viewController, animated: true)
         }
+    }
+
+    func presentAlertForCastedVote(voteType: Vote.`Type`) {
+        let alertController = UIAlertController(title: "Vote Casted!", message: "You have successfully \(voteType == .up ? "upvoted" : "downvoted") this image.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+
+        navigationController.present(alertController, animated: true)
     }
 }

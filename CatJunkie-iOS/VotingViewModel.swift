@@ -10,11 +10,11 @@ import Foundation
 
 final class VotingViewModel {
 
-    private let catId: String
+    let cat: Cat
     private let apiService: APIServiceProtocol
 
-    init(catId: String, apiService: APIServiceProtocol = APIService.shared) {
-        self.catId = catId
+    init(cat: Cat, apiService: APIServiceProtocol = APIService.shared) {
+        self.cat = cat
         self.apiService = apiService
     }
 }

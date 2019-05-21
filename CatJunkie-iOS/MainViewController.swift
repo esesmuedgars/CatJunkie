@@ -67,7 +67,7 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        flowDelegate.presentVotingViewController(catId: viewModel.cats[indexPath.row].id)
+        flowDelegate.presentVotingViewController(cat: viewModel.cats[indexPath.row])
     }
 }
 

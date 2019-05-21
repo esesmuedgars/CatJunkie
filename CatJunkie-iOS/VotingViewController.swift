@@ -12,6 +12,8 @@ final class VotingViewController: UIViewController {
 
     var viewModel: VotingViewModel!
 
+    weak var flowDelegate: FlowControllerDelegate!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
