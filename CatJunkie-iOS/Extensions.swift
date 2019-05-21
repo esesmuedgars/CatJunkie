@@ -21,8 +21,8 @@ extension UICollectionView {
 }
 
 extension UIImage {
-    convenience init?(url: String) {
-        guard let url = URL(string: url), let data = try? Data(contentsOf: url) else {
+    convenience init?(url: String?) {
+        guard let string = url, let url = URL(string: string), let data = try? Data(contentsOf: url) else {
             return nil
         }
 
