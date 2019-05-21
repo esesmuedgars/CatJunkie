@@ -16,9 +16,9 @@ struct Vote: Codable {
         case down, up
     }
 
-    private let id: String
-    private let userId: String
-    public let type: Type
+    let id: String
+    let userId: String
+    let type: Type
 
     /// Initialize encodable `Vote` model.
     ///

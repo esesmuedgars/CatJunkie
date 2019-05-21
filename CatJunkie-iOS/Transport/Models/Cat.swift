@@ -11,6 +11,6 @@ import Foundation
 typealias Cats = [Cat]
 
 struct Cat: Decodable {
-    var id: String
-    var url: String
+    let id: String
+    let url: String
 }
