@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722D6EDC2294551D00AF2A37 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D6EDB2294551D00AF2A37 /* Convenience.swift */; };
 		725E89912292FC6900362A16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89902292FC6900362A16 /* AppDelegate.swift */; };
 		725E89932292FC6900362A16 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89922292FC6900362A16 /* MainViewController.swift */; };
 		725E89962292FC6900362A16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725E89942292FC6900362A16 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		722D6EDB2294551D00AF2A37 /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		725E898D2292FC6900362A16 /* CatJunkie-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CatJunkie-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		725E89902292FC6900362A16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		725E89922292FC6900362A16 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				72B84782229343BD0099C563 /* VotingViewModel.swift */,
 				72B84780229343AD0099C563 /* VotingViewController.swift */,
 				72B8477C22933BF20099C563 /* Extensions.swift */,
+				722D6EDB2294551D00AF2A37 /* Convenience.swift */,
 				725E89942292FC6900362A16 /* Main.storyboard */,
 				725E89972292FC6B00362A16 /* Assets.xcassets */,
 				725E89992292FC6B00362A16 /* LaunchScreen.storyboard */,
@@ -242,6 +245,7 @@
 			files = (
 				72B8477F22933DB50099C563 /* MainViewModel.swift in Sources */,
 				725E89932292FC6900362A16 /* MainViewController.swift in Sources */,
+				722D6EDC2294551D00AF2A37 /* Convenience.swift in Sources */,
 				72B8478A229356010099C563 /* Cat.swift in Sources */,
 				72B8478622934C110099C563 /* Endpoint.swift in Sources */,
 				725E89912292FC6900362A16 /* AppDelegate.swift in Sources */,
