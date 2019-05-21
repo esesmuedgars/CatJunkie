@@ -10,6 +10,7 @@ import Foundation
 
 enum Endpoint: String {
     case search = "v1/images/search"
+    case vote = "v1/votes"
 
     private var host: String {
         return "https://api.thecatapi.com"

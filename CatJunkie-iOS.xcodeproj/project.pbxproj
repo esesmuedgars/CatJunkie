@@ -21,6 +21,7 @@
 		72B8478622934C110099C563 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8478522934C110099C563 /* Endpoint.swift */; };
 		72B8478822934EA50099C563 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8478722934EA50099C563 /* APIService.swift */; };
 		72B8478A229356010099C563 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B84789229356010099C563 /* Cat.swift */; };
+		72B8478F229360E70099C563 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8478E229360E70099C563 /* Vote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		72B8478522934C110099C563 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		72B8478722934EA50099C563 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		72B84789229356010099C563 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
+		72B8478E229360E70099C563 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				72B84789229356010099C563 /* Cat.swift */,
+				72B8478E229360E70099C563 /* Vote.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				72B84783229343BD0099C563 /* RatingViewModel.swift in Sources */,
 				72B8478822934EA50099C563 /* APIService.swift in Sources */,
 				72B8477D22933BF20099C563 /* Extensions.swift in Sources */,
+				72B8478F229360E70099C563 /* Vote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
