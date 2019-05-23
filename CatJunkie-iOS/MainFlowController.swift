@@ -21,7 +21,7 @@ extension FlowController {
 }
 
 protocol FlowControllerDelegate: class {
-    func presentVotingViewController(catId: String)
+    func presentVotingViewController(catId: String, data: NSData)
 }
 
 final class MainFlowController: FlowController, FlowControllerDelegate {
@@ -46,9 +46,9 @@ final class MainFlowController: FlowController, FlowControllerDelegate {
         }
     }
 
-    func presentVotingViewController(catId: String) {
+    func presentVotingViewController(catId: String, data: NSData) {
         let viewController = storyboard.instantiateViewController(VotingViewController.self)
-        viewController.viewModel = VotingViewModel(catId: catId)
+        viewController.viewModel = VotingViewModel(catId: catId, data: data)
 
         if navigationController == nil {
             navigationController = UINavigationController(rootViewController: viewController)
