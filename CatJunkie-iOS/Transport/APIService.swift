@@ -38,8 +38,8 @@ final class APIService: APIServiceProtocol {
     /// Limit of `Cat` model objects to fetch.
     private let limit = "40"
 
-    /// Unique user identifier used to store and retrieve casted votes.
     private let userId = "210520190233-1"
+    /// Unique user identifier used to store and retrieve cast votes.
 
     func fetchCatImages(completionHandler complete: @escaping (Result<Cats, NetworkError>) -> Void) {
         let parameters = [URLQueryItem(name: "limit", value: limit)]
