@@ -12,21 +12,19 @@ final class VotingViewController: UIViewController {
 
     @IBOutlet private var imageView: UIImageView! {
         didSet {
-            // NOTE: Should pass initiated `UIImage` instead of `Cat` url?
+            imageView.layer.cornerRadius = 10
 
-            backgroundThread { [weak self] in
-                let image = UIImage(url: self?.viewModel.cat.url)
-
-                mainThread {
-                    self?.imageView.image = image
-                }
+            if let data = viewModel.data as Data? {
+                imageView.image = UIImage(data: data)
+            } else {
+                // FIXME: Set default image
+                imageView.image = nil
             }
         }
     }
 
     var viewModel: VotingViewModel!
 
-    weak var flowDelegate: FlowControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +54,10 @@ extension VotingViewController: VotingViewModelDelegate {
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
-        flowDelegate.presentAlertForCastedVote(voteType: voteType)
+        viewModel.fetchCatImageVote()
+//        let alertController = UIAlertController(title: "Vote has been Cast!", message: "You have successfully \(voteType == .up ? "upvoted" : "downvoted") this image.", preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+//
+//        present(alertController, animated: true)
     }
 }
