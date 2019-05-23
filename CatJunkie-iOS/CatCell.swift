@@ -27,16 +27,14 @@ final class CatCell: UICollectionViewCell {
         activityIndicator.startAnimating()
     }
 
-    func configure(with model: Cat) {
-        // TODO: Cache previously initiated `UIImage`
+    func configure(with identifier: String, data: NSData?) {
+        if let data = data as Data? {
+            imageView.image = UIImage(data: data)
 
-        backgroundThread { [weak self] in
-            let image = UIImage(url: model.url)
-
-            mainThread {
-                self?.imageView.image = image
-                self?.activityIndicator.stopAnimating()
-            }
+            activityIndicator.stopAnimating()
+        } else {
+            // FIXME: Set default image
+            imageView.image = nil
         }
     }
 }

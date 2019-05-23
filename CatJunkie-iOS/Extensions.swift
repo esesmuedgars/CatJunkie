@@ -29,3 +29,13 @@ extension UIImage {
         self.init(data: data)
     }
 }
+
+extension NSCache where KeyType == NSString, ObjectType == NSData {
+    func set(_ data: NSData, forKey key: String) {
+        setObject(data, forKey: NSString(string: key))
+    }
+
+    func get(forKey key: String) -> NSData? {
+        return object(forKey: NSString(string: key))
+    }
+}

@@ -8,8 +8,13 @@
 
 import Foundation
 
+@objc
 protocol MainViewModelDelegate: class {
-    func viewModelDidFetch()
+    func viewModelDidFetchCats()
+    func viewModelDidCache(catAt index: Int)
+
+    @objc
+    optional func viewModelDidFinishCaching()
 }
 
 final class MainViewModel {
@@ -21,10 +26,21 @@ final class MainViewModel {
     var cats = Cats() {
         didSet {
             mainThread { [delegate] in
-                delegate?.viewModelDidFetch()
+                delegate?.viewModelDidFetchCats()
+            }
+
+            backgroundThread(qos: .utility) { [weak self] in
+                self?.cacheCats()
             }
         }
     }
+
+    lazy var cache: NSCache<NSString, NSData> = {
+        let cache = NSCache<NSString, NSData>()
+        cache.countLimit = 40
+
+        return cache
+    }()
 
     init(apiService: APIServiceProtocol = APIService.shared) {
         self.apiService = apiService
@@ -39,6 +55,26 @@ final class MainViewModel {
                 print(error)
             }
         }
+    }
+
+    private func cacheCats() {
+        for (index, cat) in cats.enumerated() {
+            if let url = URL(string: cat.url), let data = NSData(contentsOf: url), cache.get(forKey: cat.id) == nil {
+                cache.set(data, forKey: cat.id)
+            }
+
+            mainThread { [delegate] in
+                delegate?.viewModelDidCache(catAt: index)
+            }
+        }
+
+        mainThread { [delegate] in
+            delegate?.viewModelDidFinishCaching?()
+        }
+    }
+
+    func cat(at indexPath: IndexPath) -> Cat {
+        return cats[indexPath.row]
     }
 
     func numberOfItems() -> Int {
