@@ -9,13 +9,15 @@
 import Foundation
 
 protocol VotingViewModelDelegate: class {
-    func viewModelDidFetchVote(_ vote: Vote)
+    func viewModelDidFetchVotes()
+    func viewModelDidFetchVote(_ voteType: Vote.`Type`)
     func viewModelDidCastVote(_ voteType: Vote.`Type`)
 }
 
 final class VotingViewModel {
 
-    let cat: Cat
+    let catId: String
+    let data: NSData
     private let apiService: APIServiceProtocol
 
     weak var delegate: VotingViewModelDelegate!
@@ -25,36 +27,52 @@ final class VotingViewModel {
             guard let vote = vote else { return }
 
             mainThread { [delegate] in
-                delegate?.viewModelDidFetchVote(vote)
+                delegate?.viewModelDidFetchVote(vote.type)
             }
         }
     }
 
-    init(cat: Cat, apiService: APIServiceProtocol = APIService.shared) {
-        self.cat = cat
+    init(catId: String, data: NSData, apiService: APIServiceProtocol = APIService.shared) {
+        self.catId = catId
+        self.data = data
         self.apiService = apiService
     }
 
     func fetchCatImageVote() {
-        apiService.fetchCatImageVotes { [weak self, cat] result in
-            switch result {
-            case .success(let votes):
-                if let vote = votes.first(where: { $0.id == cat.id }) {
-                    self?.vote = vote
+        // TODO:
+        // Is `.userInitiated` quality of service behaving is better than `.default`?
+        // https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/PrioritizeWorkWithQoS.html
+        backgroundThread(qos: .userInitiated) { [weak self] in
+            self?.apiService.fetchCatImageVotes { [weak self] result in
+                switch result {
+                case .success(let votes):
+                    mainThread {
+                        self?.delegate.viewModelDidFetchVotes()
+                    }
+
+                    if let id = self?.catId, let vote = votes.first(where: { $0.id == id }) {
+                        self?.vote = vote
+                    }
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
             }
         }
     }
 
     func voteForCatImage(voteType: Vote.`Type`) {
-        apiService.voteForCatImage(withId: cat.id, voteType: voteType) { [delegate] result in
-            switch result {
-            case .success:
-                delegate?.viewModelDidCastVote(voteType)
-            case .failure(let error):
-                print(error)
+        backgroundThread(qos: .userInitiated) { [weak self] in
+            guard let id = self?.catId else { return }
+
+            self?.apiService.voteForCatImage(withId: id, voteType: voteType) { [weak self] result in
+                switch result {
+                case .success:
+                    mainThread {
+                        self?.delegate.viewModelDidCastVote(voteType)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
     }

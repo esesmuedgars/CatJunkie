@@ -20,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2J6-Di-248">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MbG-Py-Ax9">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -102,22 +102,85 @@
                                     <constraint firstAttribute="width" secondItem="nLk-xT-7E6" secondAttribute="height" multiplier="1:1" id="W5o-u1-1jf"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4rl-rx-5f5">
+                                <rect key="frame" x="20" y="405" width="335" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ys0-ga-CHk">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwH-Cj-dv8">
+                                                <rect key="frame" x="49" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="rwH-Cj-dv8" secondAttribute="height" multiplier="1:1" id="dii-My-Tse"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.0" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="upvote"/>
+                                                <state key="selected" image="upvote"/>
+                                                <connections>
+                                                    <action selector="didTapUpvote" destination="OLH-4o-tpJ" eventType="touchUpInside" id="Lv0-Ep-Vb5"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="rwH-Cj-dv8" secondAttribute="bottom" id="SFP-eN-40r"/>
+                                            <constraint firstItem="rwH-Cj-dv8" firstAttribute="centerX" secondItem="ys0-ga-CHk" secondAttribute="centerX" id="SXu-El-d9y"/>
+                                            <constraint firstItem="rwH-Cj-dv8" firstAttribute="top" secondItem="ys0-ga-CHk" secondAttribute="top" id="oH0-rH-CgA"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ipJ-X7-0AA">
+                                        <rect key="frame" x="177.5" y="0.0" width="157.5" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5U-Fw-ZQo">
+                                                <rect key="frame" x="49" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="a5U-Fw-ZQo" secondAttribute="height" multiplier="1:1" id="lXM-Wy-lzu"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="downvote"/>
+                                                <state key="selected" image="downvote"/>
+                                                <connections>
+                                                    <action selector="didTapDownvote" destination="OLH-4o-tpJ" eventType="touchUpInside" id="CtJ-nJ-Zqk"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="a5U-Fw-ZQo" firstAttribute="centerX" secondItem="ipJ-X7-0AA" secondAttribute="centerX" id="MTR-Y7-6k3"/>
+                                            <constraint firstAttribute="bottom" secondItem="a5U-Fw-ZQo" secondAttribute="bottom" id="Pc5-hl-E4X"/>
+                                            <constraint firstItem="a5U-Fw-ZQo" firstAttribute="top" secondItem="ipJ-X7-0AA" secondAttribute="top" id="veV-v4-ANi"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="EOR-GV-o70"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="FQI-de-MKT" firstAttribute="trailing" secondItem="4rl-rx-5f5" secondAttribute="trailing" constant="20" id="6bW-Nv-dtq"/>
                             <constraint firstItem="nLk-xT-7E6" firstAttribute="leading" secondItem="FQI-de-MKT" secondAttribute="leading" constant="10" id="FcE-63-Ix0"/>
+                            <constraint firstItem="4rl-rx-5f5" firstAttribute="leading" secondItem="FQI-de-MKT" secondAttribute="leading" constant="20" id="aD2-GX-izw"/>
+                            <constraint firstItem="4rl-rx-5f5" firstAttribute="top" secondItem="nLk-xT-7E6" secondAttribute="bottom" constant="20" id="fJ1-HP-onq"/>
                             <constraint firstItem="FQI-de-MKT" firstAttribute="trailing" secondItem="nLk-xT-7E6" secondAttribute="trailing" constant="10" id="k8J-sJ-pZ0"/>
                             <constraint firstItem="nLk-xT-7E6" firstAttribute="top" secondItem="FQI-de-MKT" secondAttribute="top" constant="10" id="oPk-HV-Uki"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FQI-de-MKT"/>
                     </view>
                     <connections>
+                        <outlet property="downvoteButton" destination="a5U-Fw-ZQo" id="VgA-az-ws8"/>
                         <outlet property="imageView" destination="nLk-xT-7E6" id="RP5-5J-lZE"/>
+                        <outlet property="upvoteButton" destination="rwH-Cj-dv8" id="L9J-HG-5AW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDh-aX-yIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="814" y="150"/>
+            <point key="canvasLocation" x="813.60000000000002" y="149.77511244377811"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="downvote" width="439" height="476"/>
+        <image name="upvote" width="439" height="476"/>
+    </resources>
 </document>

@@ -23,8 +23,10 @@ final class VotingViewController: UIViewController {
         }
     }
 
-    var viewModel: VotingViewModel!
+    @IBOutlet private var upvoteButton: UIButton!
+    @IBOutlet private var downvoteButton: UIButton!
 
+    var viewModel: VotingViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,21 +39,40 @@ final class VotingViewController: UIViewController {
 
         viewModel.fetchCatImageVote()
     }
+
+    @IBAction func didTapUpvote() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+        viewModel.voteForCatImage(voteType: .up)
+    }
+
+    @IBAction func didTapDownvote() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+        viewModel.voteForCatImage(voteType: .down)
+    }
 }
 
 // MARK: - VotingViewModelDelegate
 
 extension VotingViewController: VotingViewModelDelegate {
 
-    func viewModelDidFetchVote(_ vote: Vote) {
-        // TODO: Populate UI elements
-
+    func viewModelDidFetchVotes() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 
-    func viewModelDidCastVote(_ voteType: Vote.`Type`) {
-        // NOTE: Is this the right way to go about this?
+    func viewModelDidFetchVote(_ voteType: Vote.`Type`) {
+        switch voteType {
+        case .up:
+            upvoteButton.isSelected = true
+            downvoteButton.isSelected = false
+        case .down:
+            upvoteButton.isSelected = false
+            downvoteButton.isSelected = true
+        }
+    }
 
+    func viewModelDidCastVote(_ voteType: Vote.`Type`) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
         viewModel.fetchCatImageVote()
