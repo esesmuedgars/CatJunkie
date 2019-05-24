@@ -15,6 +15,7 @@
 		725E89982292FC6B00362A16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 725E89972292FC6B00362A16 /* Assets.xcassets */; };
 		725E899B2292FC6B00362A16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725E89992292FC6B00362A16 /* LaunchScreen.storyboard */; };
 		725E89A62292FC6B00362A16 /* CatJunkie_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89A52292FC6B00362A16 /* CatJunkie_iOSTests.swift */; };
+		72AA1B862298193800CBED00 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA1B852298193800CBED00 /* KeychainService.swift */; };
 		72B8477B229338060099C563 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477A229338060099C563 /* MainFlowController.swift */; };
 		72B8477D22933BF20099C563 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477C22933BF20099C563 /* Extensions.swift */; };
 		72B8477F22933DB50099C563 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477E22933DB50099C563 /* MainViewModel.swift */; };
@@ -49,6 +50,7 @@
 		725E89A12292FC6B00362A16 /* CatJunkie-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CatJunkie-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		725E89A52292FC6B00362A16 /* CatJunkie_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatJunkie_iOSTests.swift; sourceTree = "<group>"; };
 		725E89A72292FC6B00362A16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72AA1B852298193800CBED00 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		72B8477A229338060099C563 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
 		72B8477C22933BF20099C563 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		72B8477E22933DB50099C563 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				725E89972292FC6B00362A16 /* Assets.xcassets */,
 				725E89992292FC6B00362A16 /* LaunchScreen.storyboard */,
 				725E899C2292FC6B00362A16 /* Info.plist */,
+				72AA1B852298193800CBED00 /* KeychainService.swift */,
 			);
 			path = "CatJunkie-iOS";
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				722D6EDA22943F3F00AF2A37 /* CatCell.swift in Sources */,
 				72B8477D22933BF20099C563 /* Extensions.swift in Sources */,
 				72B8478F229360E70099C563 /* Vote.swift in Sources */,
+				72AA1B862298193800CBED00 /* KeychainService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

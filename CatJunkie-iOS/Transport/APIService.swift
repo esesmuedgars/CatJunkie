@@ -39,6 +39,14 @@ final class APIService: APIServiceProtocol {
     static var shared = APIService()
 
     private init() {
+        if let userId = try? KeychainService.default.getValue() {
+            self.userId = userId
+        } else {
+            let userId = UUID().uuidString
+            try? KeychainService.default.setValue(userId)
+            self.userId = userId
+        }
+
         assert(apiKey.count == 36, "Invalid API key")
     }
 
