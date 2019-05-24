@@ -10,7 +10,14 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
-    @IBOutlet private var collectionView: UICollectionView!
+    @IBOutlet private var collectionView: UICollectionView! {
+        didSet {
+            let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self, action: #selector(fetchCatImages), for: .valueChanged)
+
+            collectionView.refreshControl = refreshControl
+        }
+    }
 
     var viewModel: MainViewModel!
 
@@ -23,15 +30,20 @@ final class MainViewController: UIViewController {
 
         viewModel.delegate = self
 
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-
-        viewModel.fetchCatImages()
+        fetchCatImages()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
+    @objc
+    func fetchCatImages() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+        viewModel.fetchCatImages()
     }
 }
 
@@ -40,6 +52,7 @@ final class MainViewController: UIViewController {
 extension MainViewController: MainViewModelDelegate {
 
     func viewModelDidFetchCats() {
+        collectionView.refreshControl?.endRefreshing()
         collectionView.reloadData()
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = false

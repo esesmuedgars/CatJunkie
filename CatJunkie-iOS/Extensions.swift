@@ -38,4 +38,9 @@ extension NSCache where KeyType == NSString, ObjectType == NSData {
     func get(forKey key: String) -> NSData? {
         return object(forKey: NSString(string: key))
     }
+
+    func clear() {
+        removeAllObjects()
+    }
+}
 }

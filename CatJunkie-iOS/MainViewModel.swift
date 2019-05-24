@@ -25,7 +25,8 @@ final class MainViewModel {
 
     var cats = Cats() {
         didSet {
-            mainThread { [delegate] in
+            mainThread { [cache, delegate] in
+                cache.clear()
                 delegate?.viewModelDidFetchCats()
             }
 
