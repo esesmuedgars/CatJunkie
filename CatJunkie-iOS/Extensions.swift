@@ -53,3 +53,9 @@ extension UIViewController {
         present(alertController, animated: true)
     }
 }
+
+extension NSData {
+    static var `default`: NSData? {
+        return #imageLiteral(resourceName: "cat.pdf").pngData() as NSData?
+    }
+}

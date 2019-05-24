@@ -33,7 +33,6 @@ final class CatCell: UICollectionViewCell {
 
             activityIndicator.stopAnimating()
         } else {
-            // FIXME: Set default image
             imageView.image = nil
         }
     }

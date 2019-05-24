@@ -16,13 +16,10 @@ final class VotingViewController: UIViewController {
 
             if let data = viewModel.data as Data? {
                 imageView.image = UIImage(data: data)
-            } else {
-                // FIXME: Set default image
-                imageView.image = nil
             }
         }
     }
-
+    
     @IBOutlet private var upvoteButton: UIButton!
     @IBOutlet private var downvoteButton: UIButton!
 
