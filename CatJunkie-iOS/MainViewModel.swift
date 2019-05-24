@@ -8,13 +8,10 @@
 
 import Foundation
 
-@objc
 protocol MainViewModelDelegate: class {
     func viewModelDidFetchCats()
     func viewModelDidCache(catAt index: Int)
-
-    @objc
-    optional func viewModelDidFinishCaching()
+    func viewModelFetchError(_ error: NetworkError)
 }
 
 final class MainViewModel {
@@ -25,7 +22,8 @@ final class MainViewModel {
 
     var cats = Cats() {
         didSet {
-            mainThread { [delegate] in
+            mainThread { [cache, delegate] in
+                cache.clear()
                 delegate?.viewModelDidFetchCats()
             }
 
@@ -52,7 +50,9 @@ final class MainViewModel {
             case .success(let cats):
                 self?.cats = cats
             case .failure(let error):
-                print(error)
+                mainThread {
+                    self?.delegate.viewModelFetchError(error)
+                }
             }
         }
     }
@@ -66,10 +66,6 @@ final class MainViewModel {
             mainThread { [delegate] in
                 delegate?.viewModelDidCache(catAt: index)
             }
-        }
-
-        mainThread { [delegate] in
-            delegate?.viewModelDidFinishCaching?()
         }
     }
 

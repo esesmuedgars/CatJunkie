@@ -12,6 +12,8 @@ protocol VotingViewModelDelegate: class {
     func viewModelDidFetchVotes()
     func viewModelDidFetchVote(_ voteType: Vote.`Type`)
     func viewModelDidCastVote(_ voteType: Vote.`Type`)
+    func viewModelFetchError(_ error: NetworkError)
+    func viewModelVoteError(_ error: NetworkError, voteType: Vote.`Type`)
 }
 
 final class VotingViewModel {
@@ -39,9 +41,6 @@ final class VotingViewModel {
     }
 
     func fetchCatImageVote() {
-        // TODO:
-        // Is `.userInitiated` quality of service behaving is better than `.default`?
-        // https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/PrioritizeWorkWithQoS.html
         backgroundThread(qos: .userInitiated) { [weak self] in
             self?.apiService.fetchCatImageVotes { [weak self] result in
                 switch result {
@@ -54,7 +53,9 @@ final class VotingViewModel {
                         self?.vote = vote
                     }
                 case .failure(let error):
-                    print(error)
+                    mainThread {
+                        self?.delegate.viewModelFetchError(error)
+                    }
                 }
             }
         }
@@ -65,13 +66,13 @@ final class VotingViewModel {
             guard let id = self?.catId else { return }
 
             self?.apiService.voteForCatImage(withId: id, voteType: voteType) { [weak self] result in
-                switch result {
-                case .success:
-                    mainThread {
+                mainThread {
+                    switch result {
+                    case .success:
                         self?.delegate.viewModelDidCastVote(voteType)
+                    case .failure(let error):
+                        self?.delegate.viewModelVoteError(error, voteType: voteType)
                     }
-                case .failure(let error):
-                    print(error)
                 }
             }
         }
