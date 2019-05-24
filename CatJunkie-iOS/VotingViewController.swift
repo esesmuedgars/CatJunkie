@@ -73,12 +73,22 @@ extension VotingViewController: VotingViewModelDelegate {
     }
 
     func viewModelDidCastVote(_ voteType: Vote.`Type`) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-
         viewModel.fetchCatImageVote()
-//        let alertController = UIAlertController(title: "Vote has been Cast!", message: "You have successfully \(voteType == .up ? "upvoted" : "downvoted") this image.", preferredStyle: .alert)
-//        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-//
-//        present(alertController, animated: true)
+    }
+
+    func viewModelFetchError(_ error: NetworkError) {
+        presentErrorAlert(error) { [viewModel] in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+            viewModel?.fetchCatImageVote()
+        }
+    }
+
+    func viewModelVoteError(_ error: NetworkError, voteType: Vote.`Type`) {
+        presentErrorAlert(error) { [viewModel] in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+            viewModel?.voteForCatImage(voteType: voteType)
+        }
     }
 }

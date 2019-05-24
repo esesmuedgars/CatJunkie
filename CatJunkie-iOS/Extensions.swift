@@ -43,4 +43,13 @@ extension NSCache where KeyType == NSString, ObjectType == NSData {
         removeAllObjects()
     }
 }
+
+extension UIViewController {
+    func presentErrorAlert(_ error: NetworkError, executionBlock: @escaping () -> Void) {
+        let alertController = UIAlertController(title: "Something went wrong!", message: error.userDescription, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Retry", style: .default) { _ in executionBlock() })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        present(alertController, animated: true)
+    }
 }

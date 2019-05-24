@@ -61,6 +61,14 @@ extension MainViewController: MainViewModelDelegate {
     func viewModelDidCache(catAt index: Int) {
         collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
     }
+
+    func viewModelFetchError(_ error: NetworkError) {
+        presentErrorAlert(error) { [viewModel] in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+            viewModel?.fetchCatImages()
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
