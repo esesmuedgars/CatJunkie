@@ -13,6 +13,19 @@ enum NetworkError: Error {
     case unexpectedStatusCode(statusCode: Int)
     case unableToParseDataWith(errorDescription: String)
     case failedToSerializeObjectWith(errorDescription: String)
+
+    var userDescription: String {
+        switch self {
+        case .emptyDataOrError:
+            return "Request did not fetch data or returned error."
+        case .unexpectedStatusCode(let statusCode):
+            return "Expected request status code between 200 - 299, received \(statusCode)."
+        case .unableToParseDataWith(let errorDescription):
+            return "Unable to parse data, with error: \(errorDescription)."
+        case .failedToSerializeObjectWith(let errorDescription):
+            return "Failed to serialize object with error: \(errorDescription)."
+        }
+    }
 }
 
 protocol APIServiceProtocol {
@@ -26,6 +39,14 @@ final class APIService: APIServiceProtocol {
     static var shared = APIService()
 
     private init() {
+        if let userId = try? KeychainService.default.getValue() {
+            self.userId = userId
+        } else {
+            let userId = UUID().uuidString
+            try? KeychainService.default.setValue(userId)
+            self.userId = userId
+        }
+
         assert(apiKey.count == 36, "Invalid API key")
     }
 

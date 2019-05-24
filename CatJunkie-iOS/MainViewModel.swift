@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MainViewModelDelegate: class {
     func viewModelDidFetchCats()
@@ -59,8 +60,14 @@ final class MainViewModel {
 
     private func cacheCats() {
         for (index, cat) in cats.enumerated() {
-            if let url = URL(string: cat.url), let data = NSData(contentsOf: url), cache.get(forKey: cat.id) == nil {
-                cache.set(data, forKey: cat.id)
+            if let url = URL(string: cat.url), let data = NSData(contentsOf: url) {
+                if cache.get(forKey: cat.id) == nil {
+                    cache.set(data, forKey: cat.id)
+                }
+            } else {
+                if let data: NSData = .default {
+                    cache.set(data, forKey: cat.id)
+                }
             }
 
             mainThread { [delegate] in
