@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NetworkError: Error {
+enum NetworkError: Error, Equatable {
     case emptyDataOrError
     case unexpectedStatusCode(statusCode: Int)
     case unableToParseDataWith(errorDescription: String)
@@ -59,8 +59,8 @@ final class APIService: APIServiceProtocol {
     /// Limit of `Cat` model objects to fetch.
     private let limit = "40"
 
-    private let userId = "210520190233-1"
     /// Unique user identifier used to store and retrieve cast votes.
+    private let userId: String
 
     func fetchCatImages(completionHandler complete: @escaping (Result<Cats, NetworkError>) -> Void) {
         let parameters = [URLQueryItem(name: "limit", value: limit)]

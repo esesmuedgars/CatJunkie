@@ -10,7 +10,7 @@ import Foundation
 
 typealias Votes = [Vote]
 
-struct Vote: Codable {
+struct Vote: Codable, Equatable {
 
     enum `Type`: Int {
         case down, up
