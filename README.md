@@ -1,16 +1,18 @@
-# iOS Technical Assignment
+# Cat Junkie application
 
-Technical assignment for iOS candidates
+### Task assignment for iOS developer role at [Citadele](https://www.citadele.lv/en/).
 
-Develop simple app, that connects to thecatapi.com, gets 40 random images, displays them in 2 columns. When you tap on image, app opens another screen with larger image, and rating of the image at the bottom. App must provide option to rate the image and give user feedback, that rating has been sent.
+- Using [TheCatAPI](https://docs.thecatapi.com/).
+
+<img alt="Preview GIF" src="https://github.com/esesmuedgars/CatJunkie/blob/media/preview.gif" width="50%" />
 
 ### Requirements:
 
-* Use Swift language and MVVM architecture pattern
-* Tests (of your choice Unit, Integration, UI, etc.)
-* There should be retry option for connectivity issues
-* If image cannot be loaded or there is slow network connection, show placeholder
+- [x] Using Swift 5 and Model-View-ViewModel structure design pattern, added `FlowController` to seperate navigation logic;
+- [x] Using `XCTest` for unit testing of `ViewModel` and `KeychainService`;
+- [x] Added ability to repeat HTTPs request if previously returned error;
+- [x] Added placeholder image to display if image URL received from API is corrupt.
 
-### Submission
+### Structural design pattern:
 
-Send link to project posted on GitHub
+<img alt="Preview GIF" src="https://github.com/esesmuedgars/CatJunkie/blob/media/design.png" />

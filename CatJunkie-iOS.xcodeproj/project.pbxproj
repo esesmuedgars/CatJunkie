@@ -7,12 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722D6EDA22943F3F00AF2A37 /* CatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D6ED922943F3F00AF2A37 /* CatCell.swift */; };
+		722D6EDC2294551D00AF2A37 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D6EDB2294551D00AF2A37 /* Convenience.swift */; };
 		725E89912292FC6900362A16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89902292FC6900362A16 /* AppDelegate.swift */; };
-		725E89932292FC6900362A16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89922292FC6900362A16 /* ViewController.swift */; };
+		725E89932292FC6900362A16 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89922292FC6900362A16 /* MainViewController.swift */; };
 		725E89962292FC6900362A16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725E89942292FC6900362A16 /* Main.storyboard */; };
 		725E89982292FC6B00362A16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 725E89972292FC6B00362A16 /* Assets.xcassets */; };
 		725E899B2292FC6B00362A16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725E89992292FC6B00362A16 /* LaunchScreen.storyboard */; };
-		725E89A62292FC6B00362A16 /* CatJunkie_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E89A52292FC6B00362A16 /* CatJunkie_iOSTests.swift */; };
+		726FF78F2298A2B300748847 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726FF78E2298A2B300748847 /* KeychainServiceTests.swift */; };
+		726FF7962298BC4A00748847 /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726FF7942298BC3F00748847 /* APIServiceMock.swift */; };
+		726FF7982298BC6D00748847 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726FF7972298BC6D00748847 /* MainViewModelTests.swift */; };
+		726FF79A2298BC8300748847 /* VotingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726FF7992298BC8300748847 /* VotingViewModelTests.swift */; };
+		72AA1B862298193800CBED00 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA1B852298193800CBED00 /* KeychainService.swift */; };
+		72B8477B229338060099C563 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477A229338060099C563 /* MainFlowController.swift */; };
+		72B8477D22933BF20099C563 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477C22933BF20099C563 /* Extensions.swift */; };
+		72B8477F22933DB50099C563 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477E22933DB50099C563 /* MainViewModel.swift */; };
+		72B84781229343AD0099C563 /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B84780229343AD0099C563 /* VotingViewController.swift */; };
+		72B84783229343BD0099C563 /* VotingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B84782229343BD0099C563 /* VotingViewModel.swift */; };
+		72B8478622934C110099C563 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8478522934C110099C563 /* Endpoint.swift */; };
+		72B8478822934EA50099C563 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8478722934EA50099C563 /* APIService.swift */; };
+		72B8478A229356010099C563 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B84789229356010099C563 /* Cat.swift */; };
+		72B8478F229360E70099C563 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8478E229360E70099C563 /* Vote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +41,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		722D6ED922943F3F00AF2A37 /* CatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCell.swift; sourceTree = "<group>"; };
+		722D6EDB2294551D00AF2A37 /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		725E898D2292FC6900362A16 /* CatJunkie-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CatJunkie-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		725E89902292FC6900362A16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		725E89922292FC6900362A16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		725E89922292FC6900362A16 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		725E89952292FC6900362A16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		725E89972292FC6B00362A16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		725E899A2292FC6B00362A16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		725E899C2292FC6B00362A16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		725E89A12292FC6B00362A16 /* CatJunkie-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CatJunkie-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		725E89A52292FC6B00362A16 /* CatJunkie_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatJunkie_iOSTests.swift; sourceTree = "<group>"; };
 		725E89A72292FC6B00362A16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		726FF78E2298A2B300748847 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
+		726FF7942298BC3F00748847 /* APIServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
+		726FF7972298BC6D00748847 /* MainViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		726FF7992298BC8300748847 /* VotingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingViewModelTests.swift; sourceTree = "<group>"; };
+		72AA1B852298193800CBED00 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		72B8477A229338060099C563 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
+		72B8477C22933BF20099C563 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		72B8477E22933DB50099C563 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		72B84780229343AD0099C563 /* VotingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
+		72B84782229343BD0099C563 /* VotingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingViewModel.swift; sourceTree = "<group>"; };
+		72B8478522934C110099C563 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		72B8478722934EA50099C563 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		72B84789229356010099C563 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
+		72B8478E229360E70099C563 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +107,14 @@
 		725E898F2292FC6900362A16 /* CatJunkie-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				72B8478422934C040099C563 /* Transport */,
+				726FF79D2298C8D200748847 /* Storage */,
+				726FF79E2298C8EC00748847 /* Main Screen */,
+				726FF79F2298C91400748847 /* Voting Screen */,
 				725E89902292FC6900362A16 /* AppDelegate.swift */,
-				725E89922292FC6900362A16 /* ViewController.swift */,
+				72B8477A229338060099C563 /* MainFlowController.swift */,
+				72B8477C22933BF20099C563 /* Extensions.swift */,
+				722D6EDB2294551D00AF2A37 /* Convenience.swift */,
 				725E89942292FC6900362A16 /* Main.storyboard */,
 				725E89972292FC6B00362A16 /* Assets.xcassets */,
 				725E89992292FC6B00362A16 /* LaunchScreen.storyboard */,
@@ -90,10 +126,75 @@
 		725E89A42292FC6B00362A16 /* CatJunkie-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				725E89A52292FC6B00362A16 /* CatJunkie_iOSTests.swift */,
+				726FF79B2298C89F00748847 /* Transport */,
+				726FF79C2298C8BA00748847 /* Storage */,
+				726FF7972298BC6D00748847 /* MainViewModelTests.swift */,
+				726FF7992298BC8300748847 /* VotingViewModelTests.swift */,
 				725E89A72292FC6B00362A16 /* Info.plist */,
 			);
 			path = "CatJunkie-iOSTests";
+			sourceTree = "<group>";
+		};
+		726FF79B2298C89F00748847 /* Transport */ = {
+			isa = PBXGroup;
+			children = (
+				726FF7942298BC3F00748847 /* APIServiceMock.swift */,
+			);
+			path = Transport;
+			sourceTree = "<group>";
+		};
+		726FF79C2298C8BA00748847 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				726FF78E2298A2B300748847 /* KeychainServiceTests.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		726FF79D2298C8D200748847 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				72AA1B852298193800CBED00 /* KeychainService.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		726FF79E2298C8EC00748847 /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				72B8477E22933DB50099C563 /* MainViewModel.swift */,
+				725E89922292FC6900362A16 /* MainViewController.swift */,
+				722D6ED922943F3F00AF2A37 /* CatCell.swift */,
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		726FF79F2298C91400748847 /* Voting Screen */ = {
+			isa = PBXGroup;
+			children = (
+				72B84782229343BD0099C563 /* VotingViewModel.swift */,
+				72B84780229343AD0099C563 /* VotingViewController.swift */,
+			);
+			path = "Voting Screen";
+			sourceTree = "<group>";
+		};
+		72B8478422934C040099C563 /* Transport */ = {
+			isa = PBXGroup;
+			children = (
+				72B8478722934EA50099C563 /* APIService.swift */,
+				72B8478522934C110099C563 /* Endpoint.swift */,
+				72B8478D22935C760099C563 /* Models */,
+			);
+			path = Transport;
+			sourceTree = "<group>";
+		};
+		72B8478D22935C760099C563 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				72B84789229356010099C563 /* Cat.swift */,
+				72B8478E229360E70099C563 /* Vote.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +298,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725E89932292FC6900362A16 /* ViewController.swift in Sources */,
+				72B8477F22933DB50099C563 /* MainViewModel.swift in Sources */,
+				725E89932292FC6900362A16 /* MainViewController.swift in Sources */,
+				722D6EDC2294551D00AF2A37 /* Convenience.swift in Sources */,
+				72B8478A229356010099C563 /* Cat.swift in Sources */,
+				72B8478622934C110099C563 /* Endpoint.swift in Sources */,
 				725E89912292FC6900362A16 /* AppDelegate.swift in Sources */,
+				72B84781229343AD0099C563 /* VotingViewController.swift in Sources */,
+				72B8477B229338060099C563 /* MainFlowController.swift in Sources */,
+				726FF7962298BC4A00748847 /* APIServiceMock.swift in Sources */,
+				72B84783229343BD0099C563 /* VotingViewModel.swift in Sources */,
+				72B8478822934EA50099C563 /* APIService.swift in Sources */,
+				722D6EDA22943F3F00AF2A37 /* CatCell.swift in Sources */,
+				72B8477D22933BF20099C563 /* Extensions.swift in Sources */,
+				72B8478F229360E70099C563 /* Vote.swift in Sources */,
+				72AA1B862298193800CBED00 /* KeychainService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +320,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725E89A62292FC6B00362A16 /* CatJunkie_iOSTests.swift in Sources */,
+				726FF78F2298A2B300748847 /* KeychainServiceTests.swift in Sources */,
+				726FF79A2298BC8300748847 /* VotingViewModelTests.swift in Sources */,
+				726FF7982298BC6D00748847 /* MainViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
