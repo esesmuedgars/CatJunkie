@@ -17,6 +17,7 @@
 		726FF78F2298A2B300748847 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726FF78E2298A2B300748847 /* KeychainServiceTests.swift */; };
 		726FF7962298BC4A00748847 /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726FF7942298BC3F00748847 /* APIServiceMock.swift */; };
 		726FF7982298BC6D00748847 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726FF7972298BC6D00748847 /* MainViewModelTests.swift */; };
+		726FF79A2298BC8300748847 /* VotingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726FF7992298BC8300748847 /* VotingViewModelTests.swift */; };
 		72AA1B862298193800CBED00 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA1B852298193800CBED00 /* KeychainService.swift */; };
 		72B8477B229338060099C563 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477A229338060099C563 /* MainFlowController.swift */; };
 		72B8477D22933BF20099C563 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B8477C22933BF20099C563 /* Extensions.swift */; };
@@ -54,6 +55,7 @@
 		726FF78E2298A2B300748847 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
 		726FF7942298BC3F00748847 /* APIServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
 		726FF7972298BC6D00748847 /* MainViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		726FF7992298BC8300748847 /* VotingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingViewModelTests.swift; sourceTree = "<group>"; };
 		72AA1B852298193800CBED00 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		72B8477A229338060099C563 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
 		72B8477C22933BF20099C563 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				726FF78E2298A2B300748847 /* KeychainServiceTests.swift */,
 				726FF79B2298C89F00748847 /* Transport */,
 				726FF7972298BC6D00748847 /* MainViewModelTests.swift */,
+				726FF7992298BC8300748847 /* VotingViewModelTests.swift */,
 				725E89A72292FC6B00362A16 /* Info.plist */,
 			);
 			path = "CatJunkie-iOSTests";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				726FF78F2298A2B300748847 /* KeychainServiceTests.swift in Sources */,
+				726FF79A2298BC8300748847 /* VotingViewModelTests.swift in Sources */,
 				726FF7982298BC6D00748847 /* MainViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
