@@ -10,7 +10,7 @@ import Foundation
 
 typealias Cats = [Cat]
 
-struct Cat: Decodable {
+struct Cat: Decodable, Equatable {
     let id: String
     let url: String
 }
