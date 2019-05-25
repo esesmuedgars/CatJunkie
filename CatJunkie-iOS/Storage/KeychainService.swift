@@ -26,7 +26,7 @@ extension KeychainError {
 }
 
 final class KeychainService {
-    
+
     static var `default` = KeychainService()
 
     private var bundleIdentifier = Bundle.main.bundleIdentifier

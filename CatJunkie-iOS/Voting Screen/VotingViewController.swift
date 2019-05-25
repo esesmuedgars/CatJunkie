@@ -19,7 +19,7 @@ final class VotingViewController: UIViewController {
             }
         }
     }
-    
+
     @IBOutlet private var upvoteButton: UIButton!
     @IBOutlet private var downvoteButton: UIButton!
 

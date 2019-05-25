@@ -42,11 +42,11 @@ final class VotingViewModel {
 
     func fetchCatImageVote() {
         backgroundThread(qos: .userInitiated) { [weak self] in
-            self?.apiService.fetchCatImageVotes { [weak self] result in
+            self?.apiService.fetchCatImageVotes { result in
                 switch result {
                 case .success(let votes):
                     mainThread {
-                        self?.delegate.viewModelDidFetchVotes()
+                        self?.delegate?.viewModelDidFetchVotes()
                     }
 
                     if let id = self?.catId, let vote = votes.first(where: { $0.id == id }) {
@@ -54,7 +54,7 @@ final class VotingViewModel {
                     }
                 case .failure(let error):
                     mainThread {
-                        self?.delegate.viewModelFetchError(error)
+                        self?.delegate?.viewModelFetchError(error)
                     }
                 }
             }
@@ -65,13 +65,13 @@ final class VotingViewModel {
         backgroundThread(qos: .userInitiated) { [weak self] in
             guard let id = self?.catId else { return }
 
-            self?.apiService.voteForCatImage(withId: id, voteType: voteType) { [weak self] result in
+            self?.apiService.voteForCatImage(withId: id, voteType: voteType) { result in
                 mainThread {
                     switch result {
                     case .success:
-                        self?.delegate.viewModelDidCastVote(voteType)
+                        self?.delegate?.viewModelDidCastVote(voteType)
                     case .failure(let error):
-                        self?.delegate.viewModelVoteError(error, voteType: voteType)
+                        self?.delegate?.viewModelVoteError(error, voteType: voteType)
                     }
                 }
             }

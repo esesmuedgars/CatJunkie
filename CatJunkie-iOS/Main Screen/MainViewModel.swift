@@ -52,7 +52,7 @@ final class MainViewModel {
                 self?.cats = cats
             case .failure(let error):
                 mainThread {
-                    self?.delegate.viewModelFetchError(error)
+                    self?.delegate?.viewModelFetchError(error)
                 }
             }
         }

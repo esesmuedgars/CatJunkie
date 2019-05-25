@@ -96,7 +96,7 @@ extension MainViewController: UICollectionViewDelegate {
         let id = viewModel.cat(at: indexPath).id
 
         if let data = viewModel.cache.get(forKey: id) {
-            flowDelegate.presentVotingViewController(catId: id, data: data)
+            flowDelegate?.presentVotingViewController(catId: id, data: data)
         }
     }
 }
