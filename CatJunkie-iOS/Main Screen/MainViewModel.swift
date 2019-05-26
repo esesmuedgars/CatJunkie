@@ -11,7 +11,6 @@ import UIKit
 
 protocol MainViewModelDelegate: class {
     func viewModelDidFetchCats()
-    func viewModelDidCache(catAt index: Int)
     func viewModelFetchError(_ error: NetworkError)
 }
 
@@ -21,15 +20,15 @@ final class MainViewModel {
 
     weak var delegate: MainViewModelDelegate!
 
+    private var cacheWorkItem: DispatchWorkItem!
+
     var cats = Cats() {
         didSet {
-            mainThread { [cache, delegate] in
-                cache.clear()
-                delegate?.viewModelDidFetchCats()
-            }
+            mainThread { [weak self] in
+                self?.cacheWorkItem?.cancel()
+                self?.cache.clear()
 
-            backgroundThread(qos: .utility) { [weak self] in
-                self?.cacheCats()
+                self?.delegate?.viewModelDidFetchCats()
             }
         }
     }
@@ -58,26 +57,31 @@ final class MainViewModel {
         }
     }
 
-    private func cacheCats() {
-        for (index, cat) in cats.enumerated() {
-            if let url = URL(string: cat.url), let data = NSData(contentsOf: url) {
-                if cache.get(forKey: cat.id) == nil {
-                    cache.set(data, forKey: cat.id)
-                }
-            } else {
-                if let data: NSData = .default {
-                    cache.set(data, forKey: cat.id)
-                }
-            }
+    func cellParameters(forCatAt indexPath: IndexPath, completionHandler complete: @escaping (String, NSData?) -> Void) {
+        let cat = cats[indexPath.row]
 
-            mainThread { [delegate] in
-                delegate?.viewModelDidCache(catAt: index)
+        if let data = cache.get(forKey: cat.id) {
+            complete(cat.id, data)
+        } else {
+            cacheWorkItem = DispatchWorkItem { [cache] in
+                if let url = URL(string: cat.url), let data = NSData(contentsOf: url) {
+                    cache.set(data, forKey: cat.id)
+
+                    mainThread {
+                        complete(cat.id, data)
+                    }
+                } else {
+                    if let data: NSData = .default {
+                        cache.set(data, forKey: cat.id)
+
+                        mainThread {
+                            complete(cat.id, data)
+                        }
+                    }
+                }
             }
+            backgroundThread(qos: .utility, cacheWorkItem)
         }
-    }
-
-    func cat(at indexPath: IndexPath) -> Cat {
-        return cats[indexPath.row]
     }
 
     func numberOfItems() -> Int {
