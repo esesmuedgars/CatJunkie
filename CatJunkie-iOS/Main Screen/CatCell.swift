@@ -24,16 +24,18 @@ final class CatCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
+        imageView.image = nil
+
         activityIndicator.startAnimating()
     }
 
     func configure(with identifier: String, data: NSData?) {
         if let data = data as Data? {
             imageView.image = UIImage(data: data)
-
-            activityIndicator.stopAnimating()
         } else {
             imageView.image = nil
         }
+
+        activityIndicator.stopAnimating()
     }
 }
