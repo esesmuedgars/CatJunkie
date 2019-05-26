@@ -15,3 +15,7 @@ public func mainThread(_ executable: @escaping () -> Void) {
 public func backgroundThread(qos: DispatchQoS.QoSClass = .default, _ executable: @escaping () -> Void) {
     DispatchQueue.global(qos: qos).async(execute: executable)
 }
+
+public func backgroundThread(qos: DispatchQoS.QoSClass = .default, _ workItem: DispatchWorkItem) {
+    DispatchQueue.global(qos: qos).async(execute: workItem)
+}
